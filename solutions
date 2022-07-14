@@ -153,22 +153,19 @@ print_count()
 
 import os, sys
 
-# из библиотеки google.colab импортируем класс files
-from google.colab import files
- 
-# создаем объект этого класса, применяем метод .upload()
-uploaded = files.upload()
-uploaded
+inputfile = "C:/Users/AIlina/Desktop/input.txt"
 
-# обратимся к ключу словаря uploaded и применим метод .decode()
-uploaded_str = uploaded['input.txt'].decode()
- 
-# на выходе получаем обычную строку
-print(type(uploaded_str))
-print(uploaded_str)
+with open(inputfile, 'r') as inp: b = inp.read()
 
-with open('input.txt', 'r') as inp: b = inp.read()
-with open('output.txt', 'w') as outp: outp.write(b[::-1])
+with open(inputfile, 'r') as inp:
+    for line in inp: print(line.rstrip(), end = '\n')
+
+outputfile = "C:/Users/AIlina/Desktop/output.txt"
+
+with open(outputfile, 'w+') as outp: outp.write(b[::-1])
+
+with open(outputfile, 'r') as outp:
+    for line in outp: print(line.rstrip(), end = '\n')
 
 ########
 # TASK 9
